@@ -1,0 +1,59 @@
+/**
+ * Search Program
+ * Adrian Jones
+ * CPT 307 Data Structures & Algorithms
+ * Dr. Pete Limon
+ * 08/04/2020
+ */
+import java.lang.reflect.Array;
+import java.io.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+import java.util.Scanner;
+public class SearchProgram {
+
+	public static void main(String[] args) {
+		int values[] = {5,10,15,20,25,30,35,40,45,50,55,60,65, 70}; // creates an array/
+		Scanner scan = new Scanner(System.in); // Creates a scanner.
+		// Gets first input.
+		System.out.println("Enter a value.");
+		String input = scan.nextLine();
+		//Compares input to list.
+		String answer = binary(values, input);
+		//Output if input matches a value in list.
+		System.out.println(answer);
+		// Gets second input.
+		System.out.println("Enter a value.");
+		String input1 = scan.nextLine();
+		//Compares input to list.
+		String answer1 = binary(values, input1);
+		//Output if input matches a value in list.
+		System.out.println(answer1);
+	}
+	//Method to conduct a binary search.
+		public static String  binary (int[] array, String x) {
+		int left = 0;
+		int right = array.length - 1;
+		String non = "No matches";
+		while (left <= right) {
+			int mid = left + ((right - left)/ 2);
+			if (array [mid]== Integer.parseInt(x)) {
+				String answer = "The program found " + x + ".";
+				return answer;
+				
+			}
+			else if (Integer.parseInt(x) < array[mid]) {
+				right = mid - 1;
+			}
+			else {
+				left = mid + 1;
+			}
+		} 
+
+	return non;
+	
+
+
+}
+}
